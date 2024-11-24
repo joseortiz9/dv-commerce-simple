@@ -4,10 +4,6 @@
   "affected": {
     "defaultBase": "main"
   },
-  "namedInputs": {
-    "sharedGlobals": ["{workspaceRoot}/.eslintrc.json"],
-    "default": ["sharedGlobals"]
-  },
   "generators": {
     "@nrwl/react": {
       "application": {
