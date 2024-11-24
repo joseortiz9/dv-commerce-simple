@@ -1,6 +1,6 @@
 # DV-Commerce
 
-Monorepo for web and mobile sales channels capable of powering a cohesive and stress-free experience to pizza buyers via the use of the Yum Commerce Platform.
+Blank dv-commerce fork, used for reproducing expo native libs autolinking issue.
 
 ## Pre-requisites
 

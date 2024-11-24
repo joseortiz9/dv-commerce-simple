@@ -16,7 +16,8 @@
     "logs:ios": "react-native log-ios",
     "sync-deps:expo-uk": "npx nx sync-deps expo-app-uk && node scripts/sync-package-json-dependencies.js uk",
     "sync-deps:expo-mx": "npx nx sync-deps expo-app-mx && node scripts/sync-package-json-dependencies.js mx",
-    "type": "nx run-many --all --target=typecheck"
+    "type": "nx run-many --all --target=typecheck",
+    "search-local-modules": "cd apps/expo-app-mx && expo-modules-autolinking search | grep native-"
   },
   "resolutions": {
     "npmlog": "5.0.1",
