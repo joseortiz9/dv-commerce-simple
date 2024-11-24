@@ -1,0 +1,68 @@
+## patch for https://github.com/facebook/react-native/issues/41907 and 
+## https://github.com/facebook/react-native/pull/33153
+
+diff --git a/node_modules/react-native/React/Base/RCTKeyCommands.m b/node_modules/react-native/React/Base/RCTKeyCommands.m
+index 1ceaf6e..56e6a77 100644
+--- a/node_modules/react-native/React/Base/RCTKeyCommands.m
++++ b/node_modules/react-native/React/Base/RCTKeyCommands.m
+@@ -18,10 +18,10 @@
+ 
+ @interface UIEvent (UIPhysicalKeyboardEvent)
+ 
+-@property (nonatomic) NSString *_modifiedInput;
++@property (nonatomic) NSString *_modifiedEventInput;
+ @property (nonatomic) NSString *_unmodifiedInput;
+-@property (nonatomic) UIKeyModifierFlags _modifierFlags;
+-@property (nonatomic) BOOL _isKeyDown;
++@property (nonatomic) UIKeyModifierFlags _modifierEventFlags;
++@property (nonatomic) BOOL _isKeyEventDown;
+ @property (nonatomic) long _keyCode;
+ 
+ @end
+@@ -116,16 +116,16 @@ RCT_NOT_IMPLEMENTED(-(instancetype)init)
+   UIKeyModifierFlags modifierFlags = 0;
+   BOOL isKeyDown = NO;
+ 
+-  if ([event respondsToSelector:@selector(_modifiedInput)]) {
+-    modifiedInput = [event _modifiedInput];
++  if ([event respondsToSelector:@selector(_modifiedEventInput)]) {
++    modifiedInput = [event _modifiedEventInput];
+   }
+ 
+-  if ([event respondsToSelector:@selector(_modifierFlags)]) {
+-    modifierFlags = [event _modifierFlags];
++  if ([event respondsToSelector:@selector(_modifierEventFlags)]) {
++    modifierFlags = [event _modifierEventFlags];
+   }
+ 
+-  if ([event respondsToSelector:@selector(_isKeyDown)]) {
+-    isKeyDown = [event _isKeyDown];
++  if ([event respondsToSelector:@selector(_isKeyEventDown)]) {
++    isKeyDown = [event _isKeyEventDown];
+   }
+ 
+   BOOL interactionEnabled = !RCTSharedApplication().isIgnoringInteractionEvents;
+diff --git a/node_modules/react-native/jest/setup.js b/node_modules/react-native/jest/setup.js
+index e98550f..a714651 100644
+--- a/node_modules/react-native/jest/setup.js
++++ b/node_modules/react-native/jest/setup.js
+@@ -109,17 +109,8 @@ jest
+       Constants: {},
+     },
+   }))
+-  .mock('../Libraries/Image/Image', () => {
+-    const Image = mockComponent('../Libraries/Image/Image');
+-    Image.getSize = jest.fn();
+-    Image.getSizeWithHeaders = jest.fn();
+-    Image.prefetch = jest.fn();
+-    Image.prefetchWithMetadata = jest.fn();
+-    Image.queryCache = jest.fn();
+-    Image.resolveAssetSource = jest.fn();
+-
+-    return Image;
+-  })
++  .mock('../Libraries/Image/Image', () => mockComponent('../Libraries/Image/Image'),  
++  )
+   .mock('../Libraries/Text/Text', () =>
+     mockComponent('../Libraries/Text/Text', MockNativeMethods),
+   )

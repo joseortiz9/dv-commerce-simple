@@ -1,0 +1,3 @@
+{
+  "extends": "../shared-native/tsconfig.spec.json",
+}

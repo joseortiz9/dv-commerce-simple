@@ -1,0 +1,25 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@phdv/native-core-framework": [
+        "./libs/native-core-framework/src/index.ts"
+      ],
+      "@phdv/native-dd-startup-trace": ["./libs/native-dd-startup-trace/src/index.ts"],
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

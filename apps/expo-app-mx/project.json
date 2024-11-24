@@ -1,0 +1,121 @@
+{
+  "name": "expo-app-mx",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/expo-app-mx/src",
+  "projectType": "application",
+  "targets": {
+    "start": {
+      "executor": "@nrwl/expo:start",
+      "options": {
+        "port": 8081,
+        "clear": true,
+        "devClient": true
+      }
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nx start expo-app-mx"
+      }
+    },
+    "run-ios": {
+      "executor": "@nrwl/expo:run",
+      "options": {
+        "platform": "ios"
+      }
+    },
+    "run-android": {
+      "executor": "@nrwl/expo:run",
+      "options": {
+        "platform": "android"
+      }
+    },
+    "build": {
+      "executor": "@nrwl/expo:build",
+      "options": {
+        "nonInteractive": true
+      }
+    },
+    "sync-deps": {
+      "executor": "@nrwl/expo:sync-deps",
+      "options": {
+        "include": [
+          "typescript",
+          "tslib",
+          "eas-cli",
+          "expo",
+          "expo-auth-session",
+          "expo-build-properties",
+          "expo-constants",
+          "expo-dev-client",
+          "expo-font",
+          "expo-image",
+          "expo-modules-core",
+          "expo-splash-screen",
+          "expo-status-bar",
+          "@expo/config-plugins",
+          "@expo/metro-config",
+          "@expo/vector-icons",
+          "react-native",
+          "@react-native-picker/picker",
+          "react-native-vector-icons",
+          "babel-plugin-module-resolver",
+          "babel-plugin-react-native-web",
+          "babel-plugin-transform-inline-environment-variables",
+          "patch-package"
+        ]
+      }
+    },
+    "ensure-symlink": {
+      "executor": "@nrwl/expo:ensure-symlink",
+      "options": {}
+    },
+    "publish": {
+      "executor": "@nrwl/expo:publish",
+      "options": {}
+    },
+    "publish-set": {
+      "executor": "@nrwl/expo:publish-set",
+      "options": {}
+    },
+    "rollback": {
+      "executor": "@nrwl/expo:rollback",
+      "options": {}
+    },
+    "eject": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nx prebuild expo-app-mx"
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "yarn tsc -p apps/expo-app-mx/tsconfig.app.json --noEmit",
+          "yarn tsc -p apps/expo-app-mx/tsconfig.spec.json --noEmit"
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "apps/expo-app-mx/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "prebuild": {
+      "executor": "@nrwl/expo:prebuild",
+      "options": {}
+    },
+    "install": {
+      "executor": "@nrwl/expo:install",
+      "options": {}
+    }
+  },
+  "tags": []
+}

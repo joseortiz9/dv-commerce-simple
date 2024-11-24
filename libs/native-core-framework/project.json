@@ -1,0 +1,25 @@
+{
+  "name": "native-core-framework",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/native-core-framework/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "yarn tsc -p libs/native-core-framework/tsconfig.spec.json --noEmit",
+          "yarn tsc -p libs/native-core-framework/tsconfig.lib.json --noEmit"
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/native-core-framework/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  }
+}

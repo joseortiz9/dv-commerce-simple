@@ -1,0 +1,28 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "npmScope": "phdv",
+  "affected": {
+    "defaultBase": "main"
+  },
+  "namedInputs": {
+    "sharedGlobals": ["{workspaceRoot}/.eslintrc.json"],
+    "default": ["sharedGlobals"]
+  },
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "style": "css",
+        "linter": "eslint",
+        "bundler": "webpack",
+        "babel": true
+      },
+      "component": {
+        "style": "css"
+      },
+      "library": {
+        "style": "css",
+        "linter": "eslint"
+      }
+    }
+  }
+}

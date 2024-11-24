@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "types": ["node"],
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc"
+  },
+  "files": [
+    "../../libs/native-core-framework/global.d.ts"
+  ],
+  "exclude": [
+    "jest.config.ts",
+    "**/*.spec.ts",
+    "**/*.spec.tsx",
+    "test-setup.tsx"
+  ],
+  "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"]
+}

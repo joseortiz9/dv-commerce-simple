@@ -1,0 +1,10 @@
+{
+  "platforms": ["ios", "tvos", "android", "web"],
+  "ios": {
+    "modules": ["RNDatadogStartUpTraceModule"],
+    "appDelegateSubscribers": ["AppDelegate"]
+  },
+  "android": {
+    "modules": ["expo.modules.ddstartuptrace.RNDatadogStartUpTraceModule"]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "types": ["jest", "node", "core-js"],
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "jsx": "react-jsx"
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  },
+  "extends": "./tsconfig.base.json"
+}

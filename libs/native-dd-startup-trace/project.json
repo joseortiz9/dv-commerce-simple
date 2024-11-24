@@ -1,0 +1,25 @@
+{
+  "name": "native-dd-startup-trace",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/native-dd-startup-trace/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "yarn tsc -p libs/native-dd-startup-trace/tsconfig.lib.json --noEmit",
+          "yarn tsc -p libs/native-dd-startup-trace/tsconfig.lib.json --noEmit"
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/native-dd-startup-trace/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  }
+}

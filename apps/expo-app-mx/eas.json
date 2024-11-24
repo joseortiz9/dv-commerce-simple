@@ -1,0 +1,87 @@
+{
+  "build": {
+    "base": {
+      "env": {
+        "NX_DAEMON": "false",
+        "EX_UPDATES_ANDROID_DELAY_LOAD_APP": "false"
+      },
+      "ios": {
+        "image": "sdk-50"
+      },
+      "android": {
+        "image": "sdk-50",
+        "resourceClass": "large"
+      }
+    },
+    "prod-mx": {
+      "extends": "base",
+      "channel": "prod-mx",
+      "distribution": "store",
+      "autoIncrement": true,
+      "env": {
+        "BUILD_TYPE": "prod",
+        "NX_ENV": "prod",
+        "NX_MARKET": "mx"
+      }
+    },
+    "staging-mx": {
+      "extends": "base",
+      "channel": "staging-mx",
+      "distribution": "store",
+      "autoIncrement": true,
+      "env": {
+        "BUILD_TYPE": "staging",
+        "NX_ENV": "staging",
+        "NX_MARKET": "mx"
+      }
+    },
+    "preview-mx": {
+      "extends": "base",
+      "channel": "preview-mx",
+      "developmentClient": true,
+      "distribution": "store",
+      "autoIncrement": true,
+      "android": {
+        "buildType": "app-bundle"
+      },
+      "env": {
+        "BUILD_TYPE": "preview",
+        "NX_ENV": "staging",
+        "NX_MARKET": "mx"
+      }
+    }
+  },
+  "submit": {
+    "prod-mx": {
+      "ios": {
+        "ascAppId": ""
+      },
+      "android": {
+        "track": "internal"
+      }
+    },
+    "staging-mx": {
+      "ios": {
+        "ascAppId": "",
+        "language": "es-MX"
+      },
+      "android": {
+        "track": "internal"
+      }
+    },
+    "preview-mx": {
+      "ios": {
+        "ascAppId": "",
+        "language": "es-MX"
+      },
+      "android": {
+        "track": "internal"
+      }
+    }
+  },
+  "cli": {
+    "version": ">= 0.55.1",
+    "promptToConfigurePushNotifications": false,
+    "appVersionSource": "remote"
+  }
+}

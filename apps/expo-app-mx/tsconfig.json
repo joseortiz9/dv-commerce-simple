@@ -1,0 +1,4 @@
+{
+  "extends": "../shared-native/tsconfig.json",
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.js", "src/**/*.jsx"]
+}
